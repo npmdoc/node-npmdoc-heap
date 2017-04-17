@@ -1,0 +1,928 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/qiao/heap.js"
+
+    >heap (v0.2.6)</a>
+</h1>
+<h4>binary heap (priority queue) algorithms (ported from Python's heapq module)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap">module heap</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.heap">
+            function <span class="apidocSignatureSpan"></span>heap
+            <span class="apidocSignatureSpan">(cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.heapify">
+            function <span class="apidocSignatureSpan">heap.</span>heapify
+            <span class="apidocSignatureSpan">(array, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.nlargest">
+            function <span class="apidocSignatureSpan">heap.</span>nlargest
+            <span class="apidocSignatureSpan">(array, n, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.nsmallest">
+            function <span class="apidocSignatureSpan">heap.</span>nsmallest
+            <span class="apidocSignatureSpan">(array, n, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.pop">
+            function <span class="apidocSignatureSpan">heap.</span>pop
+            <span class="apidocSignatureSpan">(array, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.push">
+            function <span class="apidocSignatureSpan">heap.</span>push
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.pushpop">
+            function <span class="apidocSignatureSpan">heap.</span>pushpop
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.replace">
+            function <span class="apidocSignatureSpan">heap.</span>replace
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.toString">
+            function <span class="apidocSignatureSpan">heap.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.updateItem">
+            function <span class="apidocSignatureSpan">heap.</span>updateItem
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.heapify">module heap.heapify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.heapify.heapify">
+            function <span class="apidocSignatureSpan">heap.</span>heapify
+            <span class="apidocSignatureSpan">(array, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.nlargest">module heap.nlargest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.nlargest.nlargest">
+            function <span class="apidocSignatureSpan">heap.</span>nlargest
+            <span class="apidocSignatureSpan">(array, n, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.nsmallest">module heap.nsmallest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.nsmallest.nsmallest">
+            function <span class="apidocSignatureSpan">heap.</span>nsmallest
+            <span class="apidocSignatureSpan">(array, n, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.pop">module heap.pop</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.pop.pop">
+            function <span class="apidocSignatureSpan">heap.</span>pop
+            <span class="apidocSignatureSpan">(array, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.push">module heap.push</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.push.push">
+            function <span class="apidocSignatureSpan">heap.</span>push
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.pushpop">module heap.pushpop</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.pushpop.pushpop">
+            function <span class="apidocSignatureSpan">heap.</span>pushpop
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.replace">module heap.replace</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.replace.replace">
+            function <span class="apidocSignatureSpan">heap.</span>replace
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.toString">module heap.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.toString.toString">
+            function <span class="apidocSignatureSpan">heap.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.heap.updateItem">module heap.updateItem</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.heap.updateItem.updateItem">
+            function <span class="apidocSignatureSpan">heap.</span>updateItem
+            <span class="apidocSignatureSpan">(array, item, cmp)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap" id="apidoc.module.heap">module heap</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.heap" id="apidoc.element.heap.heap">
+        function <span class="apidocSignatureSpan"></span>heap
+        <span class="apidocSignatureSpan">(cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Heap(cmp) {
+  this.cmp = cmp != null ? cmp : defaultCmp;
+  this.nodes = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.heapify" id="apidoc.element.heap.heapify">
+        function <span class="apidocSignatureSpan">heap.</span>heapify
+        <span class="apidocSignatureSpan">(array, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">heapify = function (array, cmp) {
+  var i, _i, _j, _len, _ref, _ref1, _results, _results1;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  _ref1 = (function() {
+    _results1 = [];
+    for (var _j = 0, _ref = floor(array.length / 2); 0 &#x3c;= _ref ? _j &#x3c; _ref : _j &#x3e; _ref; 0 &#x3c;= _ref ? _j++ : _j--){ _results1.push
+(_j); }
+    return _results1;
+  }).apply(this).reverse();
+  _results = [];
+  for (_i = 0, _len = _ref1.length; _i &#x3c; _len; _i++) {
+    i = _ref1[_i];
+    _results.push(_siftup(array, i, cmp));
+  }
+  return _results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.nlargest" id="apidoc.element.heap.nlargest">
+        function <span class="apidocSignatureSpan">heap.</span>nlargest
+        <span class="apidocSignatureSpan">(array, n, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nlargest = function (array, n, cmp) {
+  var elem, result, _i, _len, _ref;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  result = array.slice(0, n);
+  if (!result.length) {
+    return result;
+  }
+  heapify(result, cmp);
+  _ref = array.slice(n);
+  for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+    elem = _ref[_i];
+    heappushpop(result, elem, cmp);
+  }
+  return result.sort(cmp).reverse();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+heap.pop(); // {foo: 1}
+```
+
+find 3 largest/smallest items in an array
+
+```js
+var array = [1, 3, 4, 2, 5];
+Heap.<span class="apidocCodeKeywordSpan">nlargest</span>(array, 3);  // [5, 4, 3]
+Heap.nsmallest(array, 3); // [1, 2, 3]
+```
+
+Document
+--------
+
+This module exposes only one object, namely the Heap class.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.nsmallest" id="apidoc.element.heap.nsmallest">
+        function <span class="apidocSignatureSpan">heap.</span>nsmallest
+        <span class="apidocSignatureSpan">(array, n, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nsmallest = function (array, n, cmp) {
+  var elem, i, los, result, _i, _j, _len, _ref, _ref1, _results;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  if (n * 10 &#x3c;= array.length) {
+    result = array.slice(0, n).sort(cmp);
+    if (!result.length) {
+      return result;
+    }
+    los = result[result.length - 1];
+    _ref = array.slice(n);
+    for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+      elem = _ref[_i];
+      if (cmp(elem, los) &#x3c; 0) {
+        insort(result, elem, 0, null, cmp);
+        result.pop();
+        los = result[result.length - 1];
+      }
+    }
+    return result;
+  }
+  heapify(array, cmp);
+  _results = [];
+  for (i = _j = 0, _ref1 = min(n, array.length); 0 &#x3c;= _ref1 ? _j &#x3c; _ref1 : _j &#x3e; _ref1; i = 0 &#x3c;= _ref1 ? ++_j : --_j) {
+    _results.push(heappop(array, cmp));
+  }
+  return _results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+find 3 largest/smallest items in an array
+
+```js
+var array = [1, 3, 4, 2, 5];
+Heap.nlargest(array, 3);  // [5, 4, 3]
+Heap.<span class="apidocCodeKeywordSpan">nsmallest</span>(array, 3); // [1, 2, 3]
+```
+
+Document
+--------
+
+This module exposes only one object, namely the Heap class.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.pop" id="apidoc.element.heap.pop">
+        function <span class="apidocSignatureSpan">heap.</span>pop
+        <span class="apidocSignatureSpan">(array, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pop = function (array, cmp) {
+  var lastelt, returnitem;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  lastelt = array.pop();
+  if (array.length) {
+    returnitem = array[0];
+    array[0] = lastelt;
+    _siftup(array, 0, cmp);
+  } else {
+    returnitem = lastelt;
+  }
+  return returnitem;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+push and pop
+
+```js
+var heap = new Heap();
+heap.push(3);
+heap.push(1);
+heap.push(2);
+heap.<span class="apidocCodeKeywordSpan">pop</span>(); // 1
+```
+
+custom comparison function
+
+```js
+var heap = new Heap(function(a, b) {
+return a.foo - b.foo;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.push" id="apidoc.element.heap.push">
+        function <span class="apidocSignatureSpan">heap.</span>push
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (array, item, cmp) {
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  array.push(item);
+  return _siftdown(array, 0, array.length - 1, cmp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+-------
+
+
+push and pop
+
+```js
+var heap = new Heap();
+heap.<span class="apidocCodeKeywordSpan">push</span>(3);
+heap.push(1);
+heap.push(2);
+heap.pop(); // 1
+```
+
+custom comparison function
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.pushpop" id="apidoc.element.heap.pushpop">
+        function <span class="apidocSignatureSpan">heap.</span>pushpop
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pushpop = function (array, item, cmp) {
+  var _ref;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  if (array.length &#x26;&#x26; cmp(array[0], item) &#x3c; 0) {
+    _ref = [array[0], item], item = _ref[0], array[0] = _ref[1];
+    _siftup(array, 0, cmp);
+  }
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.replace" id="apidoc.element.heap.replace">
+        function <span class="apidocSignatureSpan">heap.</span>replace
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replace = function (array, item, cmp) {
+  var returnitem;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  returnitem = array[0];
+  array[0] = item;
+  _siftup(array, 0, cmp);
+  return returnitem;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.toString" id="apidoc.element.heap.toString">
+        function <span class="apidocSignatureSpan">heap.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.heap.updateItem" id="apidoc.element.heap.updateItem">
+        function <span class="apidocSignatureSpan">heap.</span>updateItem
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateItem = function (array, item, cmp) {
+  var pos;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  pos = array.indexOf(item);
+  if (pos === -1) {
+    return;
+  }
+  _siftdown(array, 0, pos, cmp);
+  return _siftup(array, pos, cmp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.heapify" id="apidoc.module.heap.heapify">module heap.heapify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.heapify.heapify" id="apidoc.element.heap.heapify.heapify">
+        function <span class="apidocSignatureSpan">heap.</span>heapify
+        <span class="apidocSignatureSpan">(array, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">heapify = function (array, cmp) {
+  var i, _i, _j, _len, _ref, _ref1, _results, _results1;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  _ref1 = (function() {
+    _results1 = [];
+    for (var _j = 0, _ref = floor(array.length / 2); 0 &#x3c;= _ref ? _j &#x3c; _ref : _j &#x3e; _ref; 0 &#x3c;= _ref ? _j++ : _j--){ _results1.push
+(_j); }
+    return _results1;
+  }).apply(this).reverse();
+  _results = [];
+  for (_i = 0, _len = _ref1.length; _i &#x3c; _len; _i++) {
+    i = _ref1[_i];
+    _results.push(_siftup(array, i, cmp));
+  }
+  return _results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.nlargest" id="apidoc.module.heap.nlargest">module heap.nlargest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.nlargest.nlargest" id="apidoc.element.heap.nlargest.nlargest">
+        function <span class="apidocSignatureSpan">heap.</span>nlargest
+        <span class="apidocSignatureSpan">(array, n, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nlargest = function (array, n, cmp) {
+  var elem, result, _i, _len, _ref;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  result = array.slice(0, n);
+  if (!result.length) {
+    return result;
+  }
+  heapify(result, cmp);
+  _ref = array.slice(n);
+  for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+    elem = _ref[_i];
+    heappushpop(result, elem, cmp);
+  }
+  return result.sort(cmp).reverse();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+heap.pop(); // {foo: 1}
+```
+
+find 3 largest/smallest items in an array
+
+```js
+var array = [1, 3, 4, 2, 5];
+Heap.<span class="apidocCodeKeywordSpan">nlargest</span>(array, 3);  // [5, 4, 3]
+Heap.nsmallest(array, 3); // [1, 2, 3]
+```
+
+Document
+--------
+
+This module exposes only one object, namely the Heap class.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.nsmallest" id="apidoc.module.heap.nsmallest">module heap.nsmallest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.nsmallest.nsmallest" id="apidoc.element.heap.nsmallest.nsmallest">
+        function <span class="apidocSignatureSpan">heap.</span>nsmallest
+        <span class="apidocSignatureSpan">(array, n, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nsmallest = function (array, n, cmp) {
+  var elem, i, los, result, _i, _j, _len, _ref, _ref1, _results;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  if (n * 10 &#x3c;= array.length) {
+    result = array.slice(0, n).sort(cmp);
+    if (!result.length) {
+      return result;
+    }
+    los = result[result.length - 1];
+    _ref = array.slice(n);
+    for (_i = 0, _len = _ref.length; _i &#x3c; _len; _i++) {
+      elem = _ref[_i];
+      if (cmp(elem, los) &#x3c; 0) {
+        insort(result, elem, 0, null, cmp);
+        result.pop();
+        los = result[result.length - 1];
+      }
+    }
+    return result;
+  }
+  heapify(array, cmp);
+  _results = [];
+  for (i = _j = 0, _ref1 = min(n, array.length); 0 &#x3c;= _ref1 ? _j &#x3c; _ref1 : _j &#x3e; _ref1; i = 0 &#x3c;= _ref1 ? ++_j : --_j) {
+    _results.push(heappop(array, cmp));
+  }
+  return _results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+find 3 largest/smallest items in an array
+
+```js
+var array = [1, 3, 4, 2, 5];
+Heap.nlargest(array, 3);  // [5, 4, 3]
+Heap.<span class="apidocCodeKeywordSpan">nsmallest</span>(array, 3); // [1, 2, 3]
+```
+
+Document
+--------
+
+This module exposes only one object, namely the Heap class.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.pop" id="apidoc.module.heap.pop">module heap.pop</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.pop.pop" id="apidoc.element.heap.pop.pop">
+        function <span class="apidocSignatureSpan">heap.</span>pop
+        <span class="apidocSignatureSpan">(array, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pop = function (array, cmp) {
+  var lastelt, returnitem;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  lastelt = array.pop();
+  if (array.length) {
+    returnitem = array[0];
+    array[0] = lastelt;
+    _siftup(array, 0, cmp);
+  } else {
+    returnitem = lastelt;
+  }
+  return returnitem;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+push and pop
+
+```js
+var heap = new Heap();
+heap.push(3);
+heap.push(1);
+heap.push(2);
+heap.<span class="apidocCodeKeywordSpan">pop</span>(); // 1
+```
+
+custom comparison function
+
+```js
+var heap = new Heap(function(a, b) {
+return a.foo - b.foo;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.push" id="apidoc.module.heap.push">module heap.push</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.push.push" id="apidoc.element.heap.push.push">
+        function <span class="apidocSignatureSpan">heap.</span>push
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (array, item, cmp) {
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  array.push(item);
+  return _siftdown(array, 0, array.length - 1, cmp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+-------
+
+
+push and pop
+
+```js
+var heap = new Heap();
+heap.<span class="apidocCodeKeywordSpan">push</span>(3);
+heap.push(1);
+heap.push(2);
+heap.pop(); // 1
+```
+
+custom comparison function
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.pushpop" id="apidoc.module.heap.pushpop">module heap.pushpop</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.pushpop.pushpop" id="apidoc.element.heap.pushpop.pushpop">
+        function <span class="apidocSignatureSpan">heap.</span>pushpop
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pushpop = function (array, item, cmp) {
+  var _ref;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  if (array.length &#x26;&#x26; cmp(array[0], item) &#x3c; 0) {
+    _ref = [array[0], item], item = _ref[0], array[0] = _ref[1];
+    _siftup(array, 0, cmp);
+  }
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.replace" id="apidoc.module.heap.replace">module heap.replace</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.replace.replace" id="apidoc.element.heap.replace.replace">
+        function <span class="apidocSignatureSpan">heap.</span>replace
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replace = function (array, item, cmp) {
+  var returnitem;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  returnitem = array[0];
+  array[0] = item;
+  _siftup(array, 0, cmp);
+  return returnitem;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.toString" id="apidoc.module.heap.toString">module heap.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.toString.toString" id="apidoc.element.heap.toString.toString">
+        function <span class="apidocSignatureSpan">heap.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.heap.updateItem" id="apidoc.module.heap.updateItem">module heap.updateItem</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.heap.updateItem.updateItem" id="apidoc.element.heap.updateItem.updateItem">
+        function <span class="apidocSignatureSpan">heap.</span>updateItem
+        <span class="apidocSignatureSpan">(array, item, cmp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateItem = function (array, item, cmp) {
+  var pos;
+  if (cmp == null) {
+    cmp = defaultCmp;
+  }
+  pos = array.indexOf(item);
+  if (pos === -1) {
+    return;
+  }
+  _siftdown(array, 0, pos, cmp);
+  return _siftup(array, pos, cmp);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
