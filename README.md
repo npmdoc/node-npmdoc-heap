@@ -1,4 +1,7 @@
-# api documentation for  [heap (v0.2.6)](https://github.com/qiao/heap.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-heap.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-heap) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-heap.svg)](https://travis-ci.org/npmdoc/node-npmdoc-heap)
+# npmdoc-heap
+
+#### basic api documentation for  [heap (v0.2.6)](https://github.com/qiao/heap.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-heap.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-heap) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-heap.svg)](https://travis-ci.org/npmdoc/node-npmdoc-heap)
+
 #### binary heap (priority queue) algorithms (ported from Python's heapq module)
 
 [![NPM](https://nodei.co/npm/heap.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/heap)
@@ -64,7 +67,8 @@
     "scripts": {
         "test": "make test"
     },
-    "version": "0.2.6"
+    "version": "0.2.6",
+    "bin": {}
 }
 ```
 
